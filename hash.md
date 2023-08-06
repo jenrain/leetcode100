@@ -63,3 +63,17 @@ func equal(sArr, tArr []int) bool {
     return true
 }
 ```
+#### 13 罗马数字转整数
+```go
+func romanToInt(s string) (res int) {
+    table := map[byte]int{'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}
+    for i := range s {
+        if i < len(s) - 1 && table[s[i]] < table[s[i + 1]] {
+            res -= table[s[i]]
+        } else {
+            res += table[s[i]]
+        }
+    }
+    return
+}
+```
